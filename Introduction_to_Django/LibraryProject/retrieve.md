@@ -5,8 +5,8 @@ print(book.title)
 
 # Display all the Book instance attributes
 # Display all attributes of the Book instance
-print("title:", book.title)
-print("author:", book.author)
-print("publication_year:", book.publication_year)
+books = Book.objects.all()
+for book in books:
+    print(book.title)
 
 expected output: 1984 George Orwell 1949
