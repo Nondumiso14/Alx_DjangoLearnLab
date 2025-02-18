@@ -6,4 +6,3 @@ book.save()
 print(book)
 Expected Output: Book: 1984
 
-Book.objects.create"
