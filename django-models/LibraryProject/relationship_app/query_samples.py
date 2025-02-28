@@ -1,6 +1,6 @@
 #Get all books by a specific author
 author_name = 'John Smitg'
-books = Book.objects.filter(author__name=author_name)
+books = Author.objects.get(name=author_name), objects.filter(author=author)
 
 #List all books in a library
 library_name = 'Main Library'
