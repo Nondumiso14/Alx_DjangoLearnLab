@@ -9,5 +9,5 @@ books = library.books.all()
 
 #Retrieve the librarian for a library
 library_name = 'Main Library'
-library = Library.objects.get(name=library_name)
+librarian= Librarian.objects.get(library=)
 librarian = library.librarian
