@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 def book_list(request):
     books = Book.objects.all()  # Fetch all book instances from the database
-    return render(request, 'relationship_app/list_book.html', {'books': books})
+    return render(request, 'relationship_app/list_books.html', {'books': books})
 
 
 class LibraryDetailView(DetailView):
