@@ -8,9 +8,9 @@ def book_list(request):
 
 class LibraryDetailView(DetailView):
     model = Library
-    template_name = 'books/library_detail.html'
+    template_name = 'relationship_app/library_detail.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['books'] = self.object.books.all()
+        context['relationship_app'] = self.object.books.all()
         return context
