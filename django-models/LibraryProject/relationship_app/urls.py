@@ -17,3 +17,10 @@ from django.contrib.auth.views import LogoutView
 from django.urls import path
 
 urlpatterns = [path('logout/', LogoutView.as_view(template_name='registration/logout.html'), name='logout'),]
+
+urlpatterns = [
+    # ... other URL patterns ...
+
+    
+    path('register/', views.register_view, name='register.html')
+]
