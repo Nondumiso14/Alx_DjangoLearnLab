@@ -26,6 +26,18 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'registration/login.html'
 
+import UserCreationForm from django.contrib.auth.forms
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
 
+def register_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = UserCreationForm()
+    return render(request, 'relationship_app/register.html', {'form': form})
 
 
