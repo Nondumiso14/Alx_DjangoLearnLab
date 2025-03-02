@@ -41,3 +41,41 @@ def register_view(request):
     return render(request, 'relationship_app/register.html', {'form': form})
 
 
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import UserProfile
+
+from django.contrib.auth.decorators import login_required, user_passes_test
+
+def is_admin(user):
+    return user.userprofile.role == 'Admin'
+
+def is_librarian(user):
+    return user.userprofile.role == 'Librarian'
+
+def is_member(user):
+    return user.userprofile.role == 'Member'
+
+
+@login_required
+def admin_view(request):
+    if request.user.userprofile.role == 'Admin':
+        return render(request, 'admin_view.html')
+    else:
+        return redirect('home')
+
+@login_required
+def librarian_view(request):
+    if request.user.userprofile.role == 'Librarian':
+        return render(request, 'librarian_view.html')
+    else:
+        return redirect('home')
+
+@login_required
+def member_view(request):
+    if request.user.userprofile.role == 'Member':
+        return render(request, 'member_view.html')
+    else:
+        return redirect('home')
+
+
