@@ -59,23 +59,17 @@ def is_member(user):
 
 @login_required
 def admin_view(request):
-    if request.user.userprofile.role == 'Admin':
         return render(request, 'admin_view.html')
-    else:
-        return redirect('home')
-
+    
 @login_required
 def librarian_view(request):
-    if request.user.userprofile.role == 'Librarian':
         return render(request, 'librarian_view.html')
-    else:
-        return redirect('home')
+    
 
 @login_required
 def member_view(request):
-    if request.user.userprofile.role == 'Member':
         return render(request, 'member_view.html')
-    else:
-        return redirect('home')
+    
+   
 
 
