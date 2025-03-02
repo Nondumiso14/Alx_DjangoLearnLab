@@ -15,3 +15,17 @@ class LibraryDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['relationship_app'] = self.object.books.all()
         return context
+
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+
+from django.contrib.auth import login
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'registration/login.html'
+
+
+
+

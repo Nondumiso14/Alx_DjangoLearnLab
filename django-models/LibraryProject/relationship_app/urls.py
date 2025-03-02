@@ -9,3 +9,11 @@ urlpatterns = [
     # Class-based view
     path('libraries/<int:pk>/', views.LibraryDetailView.as_view(), name='library_detail'),
 ]
+
+urlpatterns = [path('login/', LoginView.as_view(template_name='registration/login.html'), name='login'),]
+
+#User Logout
+from django.contrib.auth.views import LogoutView
+from django.urls import path
+
+urlpatterns = [path('logout/', LogoutView.as_view(template_name='registration/logout.html'), name='logout'),]
