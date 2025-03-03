@@ -45,19 +45,16 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import UserProfile
 
-from django.contrib.auth.decorators 
-import login_required, user_passes_test
-from django.shortcuts import render
-
+from django.contrib.auth.decorators import user_passes_test
 #Role -checking functions
 def is_admin(user):
     return hasattr(user, 'userprofile.role') and user.userprofile.role == 'Admin'
 
 def is_librarian(user):
-    return hasattr(user, 'userprofile') and user.profile.role == 'Librarian'
+    return hasattr(user, 'userprofile') and user.userprofile.role == 'Librarian'
 
 def is_member(user):
-    return hasattr(user, 'userprofile') and userprofile.role == 'Member'
+    return hasattr(user, 'userprofile') and user.userprofile.role == 'Member'
 
 
 # Admin view
