@@ -51,13 +51,13 @@ from django.shortcuts import render
 
 #Role -checking functions
 def is_admin(user):
-    return user.userprofile.role == 'Admin'
+    return hasattr(user, 'userprofile.role') and user.userprofile.role == 'Admin'
 
 def is_librarian(user):
-    return user.userprofile.role == 'Librarian'
+    return hasattr(user, 'userprofile') and user.profile.role == 'Librarian'
 
 def is_member(user):
-    return user.userprofile.role == 'Member'
+    return hasattr(user, 'userprofile') and userprofile.role == 'Member'
 
 
 # Admin view
