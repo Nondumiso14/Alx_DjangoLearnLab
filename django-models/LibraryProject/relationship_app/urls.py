@@ -1,6 +1,9 @@
 from django.urls import path
+from .views import list_books, LibraryDetailView  # Import both views
 from . import views
-from .views import list_books
+from .views import admin_view, librarian_view, member_view
+from django.contrib.auth import views as auth_views
+
 
 urlpatterns = [
     # Function-based view
@@ -24,9 +27,6 @@ urlpatterns = [
     
     path('register/', views.register_view, name='register.html')
 ]
-
-from django.urls import path
-from .views import admin_view, librarian_view, member_view
 
 urlpatterns = [
     path('admin-view/', admin_view, name='admin_view'),
