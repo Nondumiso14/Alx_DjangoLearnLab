@@ -26,11 +26,11 @@ return user
     user.save(using=self.db)
     
     return user
-class CustomerUser(AbstractUser):
-    email = models.EmailField(unique=True, max_length=256)
-    username = models.UsernameField(unique=False, max_length=100)
-    date_of_birth = models.DateField(unique=False, max_length=100)
-    profile_photo = models.ImageField
+    class CustomerUser(AbstractUser):
+        email = models.EmailField(unique=True, max_length=256)
+        username = models.UsernameField(unique=False, max_length=100)
+        date_of_birth = models.DateField(unique=False, max_length=100)
+        profile_photo = models.ImageField
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = []
