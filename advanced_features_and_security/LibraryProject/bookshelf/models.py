@@ -7,7 +7,7 @@ class Book(models.Model):
     publication_year = models.IntegerField
 
 from django.contrib.auth.models import AbstractUser, BaseUserManager
-class CustomerUser(BaseUserManager):
+class CustomUser(BaseUserManager):
     def create_user(self, email, password=None):
         if not email:
             raise ValueError("Email required")
@@ -26,7 +26,7 @@ return user
     user.save(using=self.db)
     
     return user
-    class CustomerUser(AbstractUser):
+    class CustomUser(AbstractUser):
         email = models.EmailField(unique=True, max_length=256)
         username = models.UsernameField(unique=False, max_length=100)
         date_of_birth = models.DateField(unique=False, max_length=100)
